@@ -3,6 +3,7 @@ import "./App.css";
 import CinemaBookingApp from "./CinemaBooking/CinemaBookingApp";
 import StopwatchApp from "./Stopwatch/StopwatchApp";
 import TabFormApp from "./TabFormComponent/TabFormApp";
+import MovieSeatBooking from "./MovieSeatBooking";
 
 type ProjectRegistry = {
   "cinema-booking": {
@@ -17,6 +18,10 @@ type ProjectRegistry = {
     title: string;
     component: () => ReactElement;
   };
+  movieSeatBooking?: {
+    title: string;
+    component: () => ReactElement;
+  }
 };
 
 const projectRegistry: ProjectRegistry = {
@@ -32,6 +37,10 @@ const projectRegistry: ProjectRegistry = {
     title: "Tab Form",
     component: TabFormApp,
   },
+  movieSeatBooking: {
+    title: "Movie seat booking",
+    component: MovieSeatBooking
+  }
 };
 
 type ProjectKey = keyof typeof projectRegistry;
@@ -60,7 +69,7 @@ const createTabInstance = (
   };
 };
 
-const initialProjects: ProjectKey[] = ["cinema-booking", "stopwatch", "tabForm"];
+const initialProjects: ProjectKey[] = ["cinema-booking", "stopwatch", "tabForm", "movieSeatBooking"];
 const initialTabs = initialProjects.map((projectKey) =>
   createTabInstance(projectKey)
 );
@@ -68,10 +77,10 @@ const initialTabs = initialProjects.map((projectKey) =>
 const App = () => {
   const [tabs, setTabs] = useState<TabInstance[]>(initialTabs);
   const [activeTabId, setActiveTabId] = useState<string>(
-    initialTabs[0]?.id ?? ""
+    initialTabs[3]?.id ?? ""
   );
   const [selectedProject, setSelectedProject] =
-    useState<ProjectKey>("cinema-booking");
+    useState<ProjectKey>("movieSeatBooking");
 
   const handleAddTab = () => {
     const occurrences = tabs.filter(
@@ -143,16 +152,16 @@ const App = () => {
 
         <div className="tab-actions">
           <label htmlFor="project-picker">Add project tab:</label>
-            <select
-              id="project-picker"
-              value={selectedProject}
-              onChange={(event) => {
-                const value = event.target.value as ProjectKey;
-                if (value in projectRegistry) {
-                  setSelectedProject(value);
-                }
-              }}
-            >
+          <select
+            id="project-picker"
+            value={selectedProject}
+            onChange={(event) => {
+              const value = event.target.value as ProjectKey;
+              if (value in projectRegistry) {
+                setSelectedProject(value);
+              }
+            }}
+          >
             {Object.entries(projectRegistry).map(([key, project]) => (
               <option key={key} value={key}>
                 {project.title}

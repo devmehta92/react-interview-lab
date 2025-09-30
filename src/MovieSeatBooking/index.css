@@ -1,0 +1,99 @@
+.container {
+
+}
+
+.title {
+    font-weight: 700;
+    font-size: 24px;
+    margin: 20px;
+}
+
+.screen {
+    padding: 15px;
+    background-color: #ececec;
+    margin-bottom: 35px;
+}
+
+.seating {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.seatRow {
+    display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.seats {
+    display: flex;
+    gap: 8px;
+  }
+
+.seat {
+    width: 36px;
+  height: 36px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-size: 14px;
+}
+
+.seat:hover {
+    background: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  /* Tier colors apply to the row background only */
+  .row--front  { background: #eef7ff; }
+  .row--middle { background: #f6f0ff; }
+  .row--back   { background: #fff4ec; }
+  
+  .rowName {
+    font-weight: 700;
+    min-width: 60px;
+  }
+  
+  .rowTier {
+    font-weight: 500;
+    color: #666;
+    margin-left: 4px;
+  }
+
+.pricing {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .legendItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #444;
+  }
+  .legendSwatch {
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1px solid #bbb;
+  }
+  .legendSwatch.row--front { background: #eef7ff; }
+  .legendSwatch.row--middle { background: #f6f0ff; }
+  .legendSwatch.row--back { background: #fff4ec; }

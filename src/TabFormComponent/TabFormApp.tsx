@@ -19,9 +19,9 @@ type TabConfig = {
 const TabFormApp = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [formData, setFormData] = useState<TabFormData>({
-    name: "slok",
+    name: "Dev",
     age: "32",
-    email: "slokshah92@gmail.com",
+    email: "abc@gmail.com",
     interest: ["coding", "tennis", "cooking"],
     theme: "dark",
   });
