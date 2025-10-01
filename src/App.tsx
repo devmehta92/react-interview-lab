@@ -4,6 +4,7 @@ import CinemaBookingApp from "./CinemaBooking/CinemaBookingApp";
 import StopwatchApp from "./Stopwatch/StopwatchApp";
 import TabFormApp from "./TabFormComponent/TabFormApp";
 import MovieSeatBooking from "./MovieSeatBooking";
+import Counter from "./Counter";
 
 type ProjectRegistry = {
   "cinema-booking": {
@@ -19,6 +20,10 @@ type ProjectRegistry = {
     component: () => ReactElement;
   };
   movieSeatBooking?: {
+    title: string;
+    component: () => ReactElement;
+  };
+  counter: {
     title: string;
     component: () => ReactElement;
   }
@@ -40,6 +45,10 @@ const projectRegistry: ProjectRegistry = {
   movieSeatBooking: {
     title: "Movie seat booking",
     component: MovieSeatBooking
+  },
+  counter: {
+    title: "Counter",
+    component: Counter
   }
 };
 
@@ -69,7 +78,7 @@ const createTabInstance = (
   };
 };
 
-const initialProjects: ProjectKey[] = ["cinema-booking", "stopwatch", "tabForm", "movieSeatBooking"];
+const initialProjects: ProjectKey[] = ["cinema-booking", "stopwatch", "tabForm", "movieSeatBooking", "counter"];
 const initialTabs = initialProjects.map((projectKey) =>
   createTabInstance(projectKey)
 );
@@ -80,7 +89,7 @@ const App = () => {
     initialTabs[3]?.id ?? ""
   );
   const [selectedProject, setSelectedProject] =
-    useState<ProjectKey>("movieSeatBooking");
+    useState<ProjectKey>("counter");
 
   const handleAddTab = () => {
     const occurrences = tabs.filter(
