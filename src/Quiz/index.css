@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.quizCard {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.questionNumber {
+    margin-bottom: 20px;
+    color: gray;
+}
+
+.question {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.options {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+}
+
+.option {
+    background-color: #89BFF8;
+    padding: 15px;
+    margin: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.score {
+    display: flex;
+    justify-content: start;
+    margin-left: 20px;
+}
+
+.banner {
+    font-size: 28px;
+    color: green;
+    font-weight: bold;
+}
+
+.pagination {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
